@@ -32,11 +32,11 @@ public class MainActivity extends AppCompatActivity //implements View.OnClickLis
                 Double firstNumberValue = Double.parseDouble(firstNumber.getText().toString());
                 Double secondNumberValue = Double.parseDouble(secondNumber.getText().toString());
                 int operatorButtonId = operators.getCheckedRadioButtonId();
-                Double answer;
+                Double answer = 0.0;
 
-                if (secondNumberValue >= 0) && (firstNumberValue >= 0) {
+                if ((secondNumberValue >= 0) && (firstNumberValue >= 0)) {
 
-                    if(operatorButtonId == add.getId()){
+                    if (operatorButtonId == add.getId()) {
                         answer = firstNumberValue + secondNumberValue;
                     } else if (operatorButtonId == subtract.getId()) {
                         answer = firstNumberValue - secondNumberValue;
@@ -46,17 +46,20 @@ public class MainActivity extends AppCompatActivity //implements View.OnClickLis
                         answer = firstNumberValue / secondNumberValue;
                     }
                     result.setText(answer.toString());
+
                 } else if ((operatorButtonId == divide.getId()) && (secondNumberValue == 0)) {
-                    secondNumber.setText("You must put a number that is not zero here when dividing");
-                } else if (firstNumberValue !>= 0) {
+                    secondNumber.setText("Cannot divide by zero");
+                } else if ((firstNumberValue >= 0) == false) {
                     firstNumber.setText("You must place a number here");
-                } else if (secondNumberValue !=> 0) {
+                } else if ((secondNumberValue >= 0) == false){
                     secondNumber.setText("You must place a number here");
+                } else {
+                    result.setText("User input not valid");
                 }
 
             }
         });
-        }
+    }
 /*        @Override
         public void onClick(View v) {
             int firstNumberValue = Integer.parseInt(firstNumber.getText().toString());
