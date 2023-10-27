@@ -33,19 +33,29 @@ public class MainActivity extends AppCompatActivity //implements View.OnClickLis
                 Double secondNumberValue = Double.parseDouble(secondNumber.getText().toString());
                 int operatorButtonId = operators.getCheckedRadioButtonId();
                 Double answer;
-                if(operatorButtonId == add.getId()){
-                    answer = firstNumberValue + secondNumberValue;
-                } else if (operatorButtonId == subtract.getId()) {
-                    answer = firstNumberValue - secondNumberValue;
-                } else if (operatorButtonId == multiply.getId()) {
-                    answer = firstNumberValue * secondNumberValue;
-                } else {
-                    answer = firstNumberValue / secondNumberValue;
+
+                if (secondNumberValue >= 0) && (firstNumberValue >= 0) {
+
+                    if(operatorButtonId == add.getId()){
+                        answer = firstNumberValue + secondNumberValue;
+                    } else if (operatorButtonId == subtract.getId()) {
+                        answer = firstNumberValue - secondNumberValue;
+                    } else if (operatorButtonId == multiply.getId()) {
+                        answer = firstNumberValue * secondNumberValue;
+                    } else if ((operatorButtonId == divide.getId()) && (secondNumberValue != 0)) {
+                        answer = firstNumberValue / secondNumberValue;
+                    }
+                    result.setText(answer.toString());
+                } else if ((operatorButtonId == divide.getId()) && (secondNumberValue == 0)) {
+                    secondNumber.setText("You must put a number that is not zero here when dividing");
+                } else if (firstNumberValue !>= 0) {
+                    firstNumber.setText("You must place a number here");
+                } else if (secondNumberValue !=> 0) {
+                    secondNumber.setText("You must place a number here");
                 }
-                result.setText(answer.toString());
+
             }
         });
-
         }
 /*        @Override
         public void onClick(View v) {
