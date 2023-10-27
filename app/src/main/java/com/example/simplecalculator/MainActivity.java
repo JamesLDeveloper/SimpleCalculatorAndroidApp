@@ -21,20 +21,26 @@ public class MainActivity extends AppCompatActivity //implements View.OnClickLis
         RadioGroup operators = findViewById(R.id.operators);
         RadioButton add = findViewById(R.id.add);
         RadioButton subtract = findViewById(R.id.subtract);
+        RadioButton multiply = findViewById(R.id.multiply);
+        RadioButton divide = findViewById(R.id.divide);
         Button equals = findViewById(R.id.equals);
         TextView result = findViewById(R.id.result);
 //        findViewById(R.id.equals).setOnClickListener(MainActivity.this);
         findViewById(R.id.equals).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int firstNumberValue = Integer.parseInt(firstNumber.getText().toString());
-                int secondNumberValue = Integer.parseInt(secondNumber.getText().toString());
+                Double firstNumberValue = Double.parseDouble(firstNumber.getText().toString());
+                Double secondNumberValue = Double.parseDouble(secondNumber.getText().toString());
                 int operatorButtonId = operators.getCheckedRadioButtonId();
-                Integer answer;
+                Double answer;
                 if(operatorButtonId == add.getId()){
                     answer = firstNumberValue + secondNumberValue;
-                } else {
+                } else if (operatorButtonId == subtract.getId()) {
                     answer = firstNumberValue - secondNumberValue;
+                } else if (operatorButtonId == multiply.getId()) {
+                    answer = firstNumberValue * secondNumberValue;
+                } else {
+                    answer = firstNumberValue / secondNumberValue;
                 }
                 result.setText(answer.toString());
             }
