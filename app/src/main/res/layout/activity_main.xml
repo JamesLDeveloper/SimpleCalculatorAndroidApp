@@ -53,6 +53,11 @@
             android:text="+"
             android:textSize="16sp" />
 
+        <Space
+            android:layout_width="16sp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
         <RadioButton
             android:id="@+id/subtract"
             android:layout_width="match_parent"
@@ -64,6 +69,11 @@
             android:text="-"
             android:textSize="16sp" />
 
+        <Space
+            android:layout_width="16sp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
         <RadioButton
             android:id="@+id/multiply"
             android:layout_width="match_parent"
@@ -74,6 +84,11 @@
             android:paddingBottom="16sp"
             android:text="x"
             android:textSize="16sp" />
+
+        <Space
+            android:layout_width="16sp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
 
         <RadioButton
             android:id="@+id/divide"
@@ -113,6 +128,7 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#84CBD5"
         android:text="Simple Calculator"
         android:textAlignment="center"
         android:textSize="24sp"
