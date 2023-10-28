@@ -29,8 +29,34 @@ public class MainActivity extends AppCompatActivity //implements View.OnClickLis
         findViewById(R.id.equals).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Double firstNumberValue = Double.parseDouble(firstNumber.getText().toString());
-                Double secondNumberValue = Double.parseDouble(secondNumber.getText().toString());
+
+                Double firstNumberValue = 0.0;
+                Double secondNumberValue = 0.0;
+
+/*                if ((Double.parseDouble(firstNumber.getText().toString())) >= 0 || ((Double.parseDouble(firstNumber.getText().toString())) < 0)) {
+                    firstNumberValue = Double.parseDouble(firstNumber.getText().toString());
+                } else {
+                    firstNumberValue = 0.0;
+                }
+
+                if ((Double.parseDouble(secondNumber.getText().toString())) >= 0 || ((Double.parseDouble(secondNumber.getText().toString())) < 0)) {
+                    secondNumberValue = Double.parseDouble(secondNumber.getText().toString());
+                } else {
+                    secondNumberValue = 0.0;
+                }*/
+
+try {
+    firstNumberValue = Double.parseDouble(firstNumber.getText().toString());
+} catch (Exception e) {
+
+                }
+
+                try {
+                    secondNumberValue = Double.parseDouble(secondNumber.getText().toString());
+                } catch (Exception e) {
+
+                }
+
                 int operatorButtonId = operators.getCheckedRadioButtonId();
                 Double answer = 0.0;
 
@@ -45,6 +71,7 @@ public class MainActivity extends AppCompatActivity //implements View.OnClickLis
                     } else if ((operatorButtonId == divide.getId()) && (secondNumberValue != 0)) {
                         answer = firstNumberValue / secondNumberValue;
                     }
+
                     result.setText(answer.toString());
 
                 } else if ((operatorButtonId == divide.getId()) && (secondNumberValue == 0)) {
